@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-12">
+    <h6>You recently played:</h6>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let track of nkDataToRender">
+        <div>
+        <h6><span class="artistName" [routerLink]="['/artist', track.track.artists[0].id]">{{track.track.artists[0].name}}</span> <span class="nkNormal">- {{track.track.name}}</span></h6>
+      </div>
+        <audio *ngIf="track.track && track.track.preview_url" controls>
+            <source [src]="track.track.preview_url">
+          </audio>
+          <!-- <small *ngIf="!track.track || !track.track.preview_url"><br>Sorry, preview is not yet available in API Spotify.</small> -->
+      </li>
+    </ul>
+  </div>
+</div>

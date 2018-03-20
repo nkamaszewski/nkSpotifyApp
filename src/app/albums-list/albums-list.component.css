@@ -1,0 +1,20 @@
+.album{
+    filter: grayscale(100%);
+    transition: .3s;
+}
+
+.album:hover{
+    filter: grayscale(0%);
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+img{
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:2%;
+    width: 100%;
+}
+
+.nkImgTitle{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

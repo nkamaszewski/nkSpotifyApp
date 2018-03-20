@@ -1,0 +1,31 @@
+.row{
+    margin-top: 15px;
+}
+
+input[type='radio']{
+    transform: scale(1.3);
+}
+
+label{
+    margin-left: 20px;
+}
+
+.nkSearcherPanel{
+    background-color:#ECEEEF; 
+    margin-bottom: 15px; 
+    opacity: .97; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nkMarginTop15{
+    margin-top: 15px;  
+}
+
+
+.nkMarginTop5{
+    margin-top: 5px;  
+}
+
+.nkValidationMessage{
+    color:red; 
+}

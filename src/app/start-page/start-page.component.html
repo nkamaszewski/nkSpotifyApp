@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-12">
+    <div class="jumbotron nkJumbotron">
+        <div id="carouselExampleIndicators" class="carousel slide hidden-md-down"  data-interval="2000" data-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid"  src="./assets/screen01.JPG" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid"  src="./assets/screen02.JPG" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid"  src="./assets/screen03.JPG" alt="Third slide">
+            </div>
+          </div>
+        </div>
+
+      <h1 class="display-3">nkSpotify</h1>
+      <p class="lead" style="display: inline;">Welcome in nkSpotify single page app.</p>
+
+      <hr class="my-4">
+      <p *ngIf="!nkAuthorized()">This app is based on Spotify API, so please verify yourself:</p>
+      <p *ngIf="nkAuthorized()">You're authorized!</p>
+      <p class="lead">
+        <a class="btn btn-success btn-lg" *ngIf="!nkAuthorized()" (click)="nkAuthorize()" role="button">Authorize with Spotify</a>
+        <a class="btn btn-danger btn-lg" *ngIf="nkAuthorized()" routerLink="/search" (click)="nkSetHeader()" role="button">Enter the app</a>
+      </p>
+   
+      <small class="text-center">© 2018. All Rights Reserved <a target="_blank" href="http://nkamaszewski.pl">Norbert Kamaszewski</a></small>
+    </div>
+  </div>
+
+
+
+
+
+</div>

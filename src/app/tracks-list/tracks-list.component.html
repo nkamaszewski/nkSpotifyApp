@@ -1,0 +1,19 @@
+<div *ngFor="let track of nkDataToRender" class="card">
+  <div class="card-block">
+    <div style="background-color: #ECEEEF">
+      <p>
+        <b>
+          <span *ngFor="let artist of track.artists" class="artistName" [routerLink]="['/artist', artist.id]">| {{artist.name}} |</span>
+        </b> - {{track.name}}
+        <span *ngIf="track.album">({{track.album.name}})</span>
+      </p>
+    </div>
+    <span *ngIf="track.album && track.album.images">
+      <img *ngIf="track.album.images[2]" [src]="track.album.images[2].url" alt="" [routerLink]="['/album', track.album.id]" [title]="'Album: '+track.album.name">
+    </span>
+    <audio *ngIf="track.preview_url" controls>
+      <source [src]="track.preview_url">
+    </audio>
+    <p *ngIf="!track.preview_url">Sorry, preview is not yet available in API Spotify.</p>
+  </div>
+</div>

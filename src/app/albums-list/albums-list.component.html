@@ -1,0 +1,13 @@
+<div class="row" >
+    <div *ngFor="let album of nkDataToRender" [routerLink]="['/album', album.id]" class="col-4 album" >
+      <div *ngIf="album.images">
+      <img *ngIf="album.images[1]" [src]="album.images[1]?.url">
+      <img *ngIf="!album.images[1]" src="./assets/noimg.png">
+    </div>
+      <div class="nkImgTitle">
+      <h6 class="text-center">{{album.name}}</h6>
+      <p  class="text-center" *ngIf="album.release_date" style="font-size:11px;">{{getYear(album.release_date)}}</p> 
+    </div>
+    </div>
+  </div>
+ 

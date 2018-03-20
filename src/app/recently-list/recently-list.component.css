@@ -1,0 +1,17 @@
+.artistName:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(66,133,244);
+}
+
+.artistName{
+    color: rgb(66,133,244);  
+}
+
+audio{
+    width: 100px;
+}
+
+.nkNormal{
+    font-weight: normal;
+}

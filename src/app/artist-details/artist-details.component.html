@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+    <div class="card text-center nkArtistCard">
+      <span *ngIf="nkArtist && nkArtist.images && nkArtist.images[0] && nkArtist.images[0].url">
+        <img class="card-img-top img-fluid" [src]='nkArtist.images[0]?.url' alt="">
+      </span>
+      <div class="card-block" *ngIf="nkArtist">
+        <h4 class="card-title">{{nkArtist.name}}</h4>
+        <span *ngIf="nkArtist.genres">
+          <p class="card-text nkGenre">Genres:
+            <span *ngFor="let genre of nkArtist.genres">{{genre}}</span>
+          </p>
+        </span>
+        <nk-back-button></nk-back-button>
+      </div>
+    </div>
+    <div class="nkTopTracksList">
+      <h6 class="text-center">Top tracks:</h6>
+      <nk-tracks-list *ngIf="nkTopTracks" [nkDataToRender]="nkTopTracks"></nk-tracks-list>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <h6 class="text-center">Albums:</h6>
+    <nk-albums-list *ngIf="nkAlbums" [nkDataToRender]="nkAlbums"></nk-albums-list>
+  </div>
+</div>

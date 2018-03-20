@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-12 col-md-5 nkSearcherPanel">
+    <form>
+      <h6>Define search details:</h6>
+      <div class="form-group nkMarginTop15">
+        <label>Track</label>
+        <input type="radio" name="type" [(ngModel)]="type" value="track" checked>
+        <label>Artist</label>
+        <input type="radio" name="type" [(ngModel)]="type" value="artist">
+        <label>Album</label>
+        <input type="radio" name="type" [(ngModel)]="type" value="album">
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="query" name="query" class="form-control" id="searcher" placeholder="enter what you looking for">
+        <small *ngIf="!query && nkValidation" class="nkValidationMessage">Before click search button enter what you looking for!</small>
+        <button type="button" (click)="getMusic()" class="btn btn-block btn-danger nkMarginTop5">Search</button>
+      </div>
+    </form>
+    <nk-recently-list class="hidden-xs-down" [nkDataToRender]="nkRecentlyPlayed"></nk-recently-list>
+    <small class="hidden-xs-down">nkSpotify App is original project created by
+      <a target="_blank" href="http://nkamaszewski.pl">Norbert Kamaszewski</a>. 2018.</small>
+  </div>
+  <nk-artists-list [nkDataToRender]="nkData" *ngIf="nkViewMode === 'artist'" class="col-sm-12 col-md-7"></nk-artists-list>
+  <nk-tracks-list [nkDataToRender]="nkData" *ngIf="nkViewMode === 'track'" class="col-sm-12 col-md-7"></nk-tracks-list>
+  <nk-albums-list [nkDataToRender]="nkData" *ngIf="nkViewMode === 'album'" class="col-sm-12 col-md-7"></nk-albums-list>
+</div>
+<small class="hidden-md-up">nkSpotify App is original project created by
+  <a target="_blank" href="http://nkamaszewski.pl">Norbert Kamaszewski</a>. 2018.</small>

@@ -1,0 +1,10 @@
+<div class="row" >
+  <div id="artist" *ngFor="let artist of nkDataToRender" [routerLink]="['/artist', artist.id]" class="col-4">
+    <div *ngIf="artist.images">
+    <img *ngIf="artist.images[1]" [src]="artist.images[1]?.url">
+    <img *ngIf="!artist.images[1]" src="./assets/noimg.png">
+  </div>
+    <h6 class="text-center nkMarginTop10">{{artist.name}}</h6>
+    <p *ngIf="artist.followers" class="text-center">Followers: {{artist.followers.total}}</p>
+  </div>
+</div>

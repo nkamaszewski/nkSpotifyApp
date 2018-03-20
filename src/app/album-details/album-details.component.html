@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-xs-12 col-md-5">
+    <span *ngIf="nkAlbum && nkAlbum.images">
+      <img [src]="nkAlbum.images[1].url" class="nkImgAlbum">
+    </span>
+  </div>
+  <div class="col-xs-12 col-md-7">
+    <span *ngIf="nkAlbum">
+      <h4 class="text-center">{{nkAlbum.name}} ({{nkAlbum.release_date}})</h4>
+      <h6 class="text-center">
+        <span *ngFor="let artist of nkAlbum.artists">
+          <span [routerLink]="['/artist', artist.id]" class="artistName">{{artist.name}}</span>
+        </span>
+      </h6>
+      <span *ngIf="nkAlbum.copyrights[0]?.text">
+        <p class="nkAlbumCopyRights text-center">{{nkAlbum.copyrights[0].text}}</p>
+      </span>
+      <nk-back-button></nk-back-button>
+    </span>
+  </div>
+
+  <div class="col-12">
+    <nk-tracks-list [nkDataToRender]="nkAlbumTracks"></nk-tracks-list>
+  </div>
+</div>

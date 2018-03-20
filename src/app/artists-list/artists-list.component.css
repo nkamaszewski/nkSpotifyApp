@@ -1,0 +1,24 @@
+#artist{
+    filter: grayscale(100%);
+    transition: .3s;
+}
+
+#artist:hover{
+    filter: grayscale(0%);
+    cursor: pointer;
+    transform: scale(1.01)
+}
+
+img{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 100%;
+    width: 100%;  
+}
+
+p{
+    font-size: 11px;
+}
+
+.nkMarginTop10{
+    margin-top:10px;
+}
