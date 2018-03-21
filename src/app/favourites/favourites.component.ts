@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PlaylistService } from '../playlist.service';
+
 @Component({
   selector: 'nk-favourites',
   templateUrl: './favourites.component.html',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavouritesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private playlistService: PlaylistService) { }
+
+  favPlaylist;
 
   ngOnInit() {
+    this.playlistService.currentFavPlaylistTracks
+    .subscribe( 
+      tracks => this.favPlaylist = tracks
+    );  
   }
 
 }

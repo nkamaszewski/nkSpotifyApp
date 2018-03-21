@@ -1,3 +1,10 @@
-<p>
-  favourites works!
-</p>
+<div class="row">
+  <div class="col-12">
+<h5 class="text-center">Your favourite music!</h5>
+<small class="text-center">Note, that in your Spotify account was created playlist named <b>__nkSpotify</b>, and that playlist is full compatibiled with official Spotify App (you can also modify it in official Spotify App).</small>
+<button type="button" class="btn btn-danger btn-block nkBButton" routerLink="/search" >Back to searcher</button> 
+</div>
+  <div class="col-12">
+    <nk-tracks-list [nkDataToRender]="favPlaylist"></nk-tracks-list>
+  </div>
+</div>
