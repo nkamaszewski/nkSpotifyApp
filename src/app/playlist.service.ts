@@ -53,4 +53,14 @@ export class PlaylistService {
   getPlaylistsTracks(userId, playlistId){
     return this.nkHttp.get(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`);
   }
+
+  isTrackInPlaylist(trackId, playlistArray){
+    for(let i in playlistArray){
+      if(playlistArray[i]["id"] === trackId){
+        return true;
+      }
+    }
+    return false;
+  }
+
 }

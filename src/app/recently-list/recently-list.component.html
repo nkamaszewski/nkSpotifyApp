@@ -9,7 +9,8 @@
         <audio *ngIf="track.track && track.track.preview_url" controls>
             <source [src]="track.track.preview_url">
           </audio>
-          <!-- <small *ngIf="!track.track || !track.track.preview_url"><br>Sorry, preview is not yet available in API Spotify.</small> -->
+          <img class="float-right" *ngIf="favPlaylist && isInFavPlaylist(track.track.id, favPlaylist)" title="Add to favourites" src="./assets/star01.png">
+          <img class="float-right" *ngIf="favPlaylist && !isInFavPlaylist(track.track.id, favPlaylist)" title="Remove from favourites" src="./assets/star02.png">
       </li>
     </ul>
   </div>

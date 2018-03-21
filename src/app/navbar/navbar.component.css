@@ -20,3 +20,11 @@ img{
 .nkFav:hover{
     cursor: pointer;
 }
+
+#favLink:hover{
+    text-decoration: underline;
+}
+
+#favLink{
+    color: rgb(66,133,244);
+}
