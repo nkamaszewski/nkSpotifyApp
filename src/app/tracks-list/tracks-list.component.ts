@@ -64,5 +64,27 @@ export class TracksListComponent implements OnInit {
     })
   }
 
+  nkRemoveFromFav(userId, playlistId, trackId){
+    this.playlistService.removeTrackFromPlaylist(userId, playlistId, trackId)
+        .subscribe( resp => {
+          let status = resp.status;
+          // if track is removed successful, we update our playlist (observable)
+          if(status === 200){
+            this.playlistService.getPlaylistsTracks(userId, playlistId).subscribe( data => {
+              data = data.json();
+              let items = data["items"];
+              // cause playlist has different data structure than another data from Spotify API
+              let favTracks = [];
+              for (let i in items){
+                favTracks[i] = items[i]["track"];
+              }
+              this.playlistService.updateFavPlaylistTracks(favTracks);
+            });
+          }else{
+            console.log("Error! cannot remove track from playlist");
+          }
+        })
+  }
+
 
 }

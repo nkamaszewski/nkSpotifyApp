@@ -46,7 +46,7 @@ export class RecentlyListComponent implements OnInit {
     this.playlistService.addTrackToPlaylist(userId, playlistId, trackId)
         .subscribe( resp =>{
           let status = resp.status;
-          // if track added successful, we update our playlist (observable) with new added track
+          // if track is added successful, we update our playlist (observable) with new added track
           if(status === 201){
             this.playlistService.getPlaylistsTracks(userId, playlistId).subscribe( data => {
               data = data.json();
@@ -62,6 +62,28 @@ export class RecentlyListComponent implements OnInit {
             console.log("Error! cannot add track to playlist");
           }
     })
+  }
+
+  nkRemoveFromFav(userId, playlistId, trackId){
+    this.playlistService.removeTrackFromPlaylist(userId, playlistId, trackId)
+        .subscribe( resp => {
+          let status = resp.status;
+          // if track is removed successful, we update our playlist (observable)
+          if(status === 200){
+            this.playlistService.getPlaylistsTracks(userId, playlistId).subscribe( data => {
+              data = data.json();
+              let items = data["items"];
+              // cause playlist has different data structure than another data from Spotify API
+              let favTracks = [];
+              for (let i in items){
+                favTracks[i] = items[i]["track"];
+              }
+              this.playlistService.updateFavPlaylistTracks(favTracks);
+            });
+          }else{
+            console.log("Error! cannot remove track from playlist");
+          }
+        })
   }
 
 }

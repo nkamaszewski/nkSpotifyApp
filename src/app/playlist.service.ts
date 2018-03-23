@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Http } from '@angular/http';
+import { Http, RequestOptions } from '@angular/http';
 import { AuthorizationService } from './authorization.service';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -65,6 +65,12 @@ export class PlaylistService {
 
 
   addTrackToPlaylist(userId, playlistId, trackId){
-    return this.nkHttp.post(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {"uris": [`spotify:track:${trackId}`]})
+    return this.nkHttp.post(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {"uris": [`spotify:track:${trackId}`]});
+  }
+
+  removeTrackFromPlaylist(userId, playlistId, trackId){
+    return this.nkHttp.delete(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, new RequestOptions({
+      "body":{"uris": [`spotify:track:${trackId}`]}
+    }));
   }
 }
