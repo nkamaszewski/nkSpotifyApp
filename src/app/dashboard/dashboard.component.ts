@@ -17,16 +17,19 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.token = localStorage.getItem('token');
     
+
+    // sets init value
+    this.auth.nkGetUserId().subscribe( response => {
+      response = response.json();
+      let currentUserid = response["id"];
+      this.auth.updateUserID(currentUserid);
+    
     // if user is properly log in then find or create a internal fav playlist
     if(localStorage.getItem('token')){ 
     // if nkSpotify fav playlist is currently exist
     this.playlistService.getCurrentUserPlaylists().subscribe(response => {
       response = response.json();
-      
       let userPlaylists = response["items"];
-
-      // save global user id
-      this.auth.updateUserID(userPlaylists[0]["owner"]["id"]);
 
       let isAvalaible = false;
 
@@ -74,8 +77,7 @@ export class DashboardComponent implements OnInit {
         }) 
       }   
       })
+
+    });
   }
-
-  
-
 }
