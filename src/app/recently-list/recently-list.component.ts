@@ -15,7 +15,6 @@ export class RecentlyListComponent implements OnInit {
   @Input()
   nkDataToRender;
 
-
   favPlaylist;
   favID;
   userID;
@@ -60,7 +59,7 @@ export class RecentlyListComponent implements OnInit {
               this.playlistService.updateFavPlaylistTracks(favTracks);
             });
           }else{
-            console.log("cannot add track to playlist");
+            console.log("Error! cannot add track to playlist");
           }
     })
   }

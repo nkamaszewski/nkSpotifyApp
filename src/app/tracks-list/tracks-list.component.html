@@ -15,7 +15,7 @@
       <source [src]="track.preview_url">
     </audio>
     <img class="float-right nkStar" *ngIf="favPlaylist && isInFavPlaylist(track.id, favPlaylist)" title="Remove from favourites" src="./assets/star01.png">
-    <img class="float-right nkStar" *ngIf="favPlaylist && !isInFavPlaylist(track.id, favPlaylist)" title="Add to favourites"  src="./assets/star02.png">
+    <img class="float-right nkStar" *ngIf="favPlaylist && !isInFavPlaylist(track.id, favPlaylist)" title="Add to favourites"  src="./assets/star02.png" (click)="nkAddToFav(userID, favID, track.id)">
     <p *ngIf="!track.preview_url">Sorry, preview is not yet available in API Spotify.</p>
   </div>
 </div>
