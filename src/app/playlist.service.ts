@@ -63,4 +63,8 @@ export class PlaylistService {
     return false;
   }
 
+
+  addTrackToPlaylist(userId, playlistId, trackId){
+    return this.nkHttp.post(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {"uris": [`spotify:track:${trackId}`]})
+  }
 }
