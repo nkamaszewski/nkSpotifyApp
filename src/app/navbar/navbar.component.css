@@ -28,3 +28,14 @@ img{
 #favLink{
     color: rgb(66,133,244);
 }
+
+.nkIcon{
+    width: 30px;
+    margin-left: 5px; 
+    transition: .5s;
+}
+
+.nkIcon:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

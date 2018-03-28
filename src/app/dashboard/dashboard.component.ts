@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
     // sets init value
     this.auth.nkGetUserId().subscribe( response => {
       response = response.json();
-      console.log(response);
+      //console.log(response);
       let currentUserid = response["id"];
       this.auth.updateUserID(currentUserid);
 

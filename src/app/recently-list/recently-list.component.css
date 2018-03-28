@@ -16,11 +16,15 @@ audio{
     font-weight: normal;
 }
 
-img{
+.nkIcon{
     width: 30px;
-    margin-left: 5px;
+    margin-left: 5px; 
+    transition: .5s;
 }
 
-img:hover{
+.nkIcon:hover{
     cursor: pointer;
+    transform: scale(1.1);
 }
+
+

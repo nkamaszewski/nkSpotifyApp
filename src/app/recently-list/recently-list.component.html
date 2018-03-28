@@ -9,8 +9,8 @@
         <audio *ngIf="track.track && track.track.preview_url" controls>
             <source [src]="track.track.preview_url">
           </audio>
-          <img class="float-right" *ngIf="favPlaylist && isInFavPlaylist(track.track.id, favPlaylist)"  title="Remove from favourites" src="./assets/star01.png" (click)="nkRemoveFromFav(userID, favID, track.track.id)">
-          <img class="float-right" *ngIf="favPlaylist && !isInFavPlaylist(track.track.id, favPlaylist)" title="Add to favourites" (click)="nkAddToFav(userID, favID, track.track.id)" src="./assets/star02.png">
+          <img class="float-right nkIcon" *ngIf="favPlaylist && isInFavPlaylist(track.track.id, favPlaylist)"  title="Remove from favourites" src="./assets/star01.png" (click)="nkRemoveFromFav(userID, favID, track.track.id)">
+          <img class="float-right nkIcon" *ngIf="favPlaylist && !isInFavPlaylist(track.track.id, favPlaylist)" title="Add to favourites" (click)="nkAddToFav(userID, favID, track.track.id)" src="./assets/star02.png">
       </li>
     </ul>
   </div>

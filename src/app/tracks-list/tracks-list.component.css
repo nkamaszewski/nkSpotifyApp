@@ -21,8 +21,10 @@
 .nkStar{
     width: 30px;
     margin-left: 5px;
+    transition: .5s;
 }
 
 .nkStar:hover{
     cursor: pointer;
+    transform: scale(1.1);
 }
