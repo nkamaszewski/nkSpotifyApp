@@ -29,3 +29,13 @@ label{
 .nkValidationMessage{
     color:red; 
 }
+
+.nkIcon{
+    width: 30px;
+    height: 30px;
+    transition: .5s;
+}
+
+.nkIcon:hover{
+    transform: scale(1.1);
+}

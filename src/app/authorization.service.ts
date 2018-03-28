@@ -18,12 +18,20 @@ export class AuthorizationService {
       }
   }
 
-    // current user id as observable
+    // current user id as observable - for old spotify accounts id === Name
     private currentUserSourceID = new BehaviorSubject<string>("");
     currentUserID = this.currentUserSourceID.asObservable();
 
     updateUserID(userID){
       this.currentUserSourceID.next(userID);
+    }
+
+    // current user name as observable - new API policy
+    private currentUserSourceName = new BehaviorSubject<string>("");
+    currentUserName = this.currentUserSourceName.asObservable();
+
+    updateUserName(userName){
+      this.currentUserSourceName.next(userName);
     }
 
   nkSetHeader(){
@@ -35,7 +43,7 @@ export class AuthorizationService {
 
   nkAuthorizeUser(){
     let nkClientId: String = 'ada66ea0216544708da8aa767b7c2a2c';
-    let nkScope: String = 'user-read-private+user-read-recently-played';
+    let nkScope: String = 'user-read-private+user-read-recently-played+playlist-modify-public+playlist-modify-private';
     let nkResponseType: String = 'token';
     let nkRedirectUri: String = 'http://nkamaszewski.pl/projects/nkSpotify/temp.html';
     let nkShowdialog: String = 'true';

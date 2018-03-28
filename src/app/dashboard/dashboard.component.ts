@@ -21,8 +21,12 @@ export class DashboardComponent implements OnInit {
     // sets init value
     this.auth.nkGetUserId().subscribe( response => {
       response = response.json();
+      console.log(response);
       let currentUserid = response["id"];
       this.auth.updateUserID(currentUserid);
+
+      let currentUserName = response["display_name"];
+      this.auth.updateUserName(currentUserName);
     
     // if user is properly log in then find or create a internal fav playlist
     if(localStorage.getItem('token')){ 
