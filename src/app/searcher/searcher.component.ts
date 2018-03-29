@@ -51,4 +51,11 @@ export class SearcherComponent implements OnInit {
       this.nkValidation = true;
     }
   }
+
+  onKey(event){
+    // if user paste enter
+    if(event.keyCode === 13){
+      this.getMusic();
+    }
+  }
 }
